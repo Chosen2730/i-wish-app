@@ -12,7 +12,7 @@ const CreateAccount = ({ navigation }) => {
             Create Account
           </Text>
           <TouchableOpacity
-            onPress={() => navigation.push("CreateAccountForm")}
+            onPress={() => navigation.navigate("CreateAccountForm")}
           >
             <View className='flex-row ml-auto items-center'>
               <Text className='text-base mr-2'>Skip</Text>
@@ -32,7 +32,7 @@ const CreateAccount = ({ navigation }) => {
           </Text>
           <TouchableOpacity
             className='bg-purple-800 w-full rounded-md p-4 my-5'
-            onPress={() => navigation.push("CreateAccountForm")}
+            onPress={() => navigation.navigate("CreateAccountForm")}
           >
             <Text className='text-white text-center text-sm'>
               Continue as a wisher
@@ -51,7 +51,7 @@ const CreateAccount = ({ navigation }) => {
           </Text>
           <TouchableOpacity
             className='bg-purple-800 w-full rounded-md p-4 my-5'
-            onPress={() => navigation.push("CreateAccountForm")}
+            onPress={() => navigation.navigate("CreateAccountForm")}
           >
             <Text className='text-white text-center text-sm'>
               Continue as a Vendor

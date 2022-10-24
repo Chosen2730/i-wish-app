@@ -1,12 +1,12 @@
 import { View, Text } from "react-native";
 import React from "react";
 
-const Dashboard = () => {
+const CustomDrawer = () => {
   return (
     <View>
-      <Text>Dashboard</Text>
+      <Text>CustomDrawer</Text>
     </View>
   );
 };
 
-export default Dashboard;
+export default CustomDrawer;
