@@ -1,13 +1,42 @@
-import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View } from "react-native";
-
+import { createStackNavigator } from "@react-navigation/stack";
+import Onboarding from "./screens/splashScreen/onboarding";
+import { NavigationContainer } from "@react-navigation/native";
+import CreateAccount from "./screens/splashScreen/createAccount";
+import CreateAccountForm from "./screens/splashScreen/createAccountForm";
+import OTPValidation from "./screens/splashScreen/otpValidation";
+import Signin from "./screens/splashScreen/signin";
+import { Text } from "react-native";
 export default function App() {
+  const Stack = createStackNavigator();
   return (
-    <View className='flex-1 justify-center items-center'>
-      <Text className='text-red-500 bg-black'>
-        Open up App.js to start working on your app.
-      </Text>
-      <StatusBar style='auto' />
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen
+          name='Onboarding'
+          component={Onboarding}
+          options={{ header: () => null }}
+        />
+        <Stack.Screen
+          name='CreateAccount'
+          component={CreateAccount}
+          options={{ header: () => null }}
+        />
+        <Stack.Screen
+          name='CreateAccountForm'
+          component={CreateAccountForm}
+          options={{ header: () => null }}
+        />
+        <Stack.Screen
+          name='OTPValidation'
+          component={OTPValidation}
+          options={{ header: () => null }}
+        />
+        <Stack.Screen
+          name='Signin'
+          component={Signin}
+          options={{ header: () => null }}
+        />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
