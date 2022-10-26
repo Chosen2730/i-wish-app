@@ -10,7 +10,7 @@ const AddToCart = ({ navigation, route }) => {
   const [imageShownIndex, setImageShownIndex] = useState(0);
   const [availableIndex, setAvailableIndex] = useState(0);
   const nums = [43, 39, 42, 45];
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(1);
   const increase = () => {
     setCount(count + 1);
   };
@@ -87,13 +87,16 @@ const AddToCart = ({ navigation, route }) => {
           </View>
           <Text className='text-lg font-semibold mt-4 mb-2'>Quantity</Text>
           <View className='flex-row p-1 px-2 rounded-md border-2 border-purple-800 w-32 items-center justify-between'>
-            <Text className='text-xl' onPress={() => decrease(count)}>
+            <Text
+              className='text-xl text-center w-8'
+              onPress={() => decrease(count)}
+            >
               -
             </Text>
             <Text className='text-lg text-purple-800 font-semibold'>
               {count}
             </Text>
-            <Text className='text-xl' onPress={increase}>
+            <Text className='text-xl text-center w-8' onPress={increase}>
               +
             </Text>
           </View>
@@ -102,7 +105,7 @@ const AddToCart = ({ navigation, route }) => {
               <AntDesign name='hearto' size={24} color='#7805A7' />
             </View>
             <TouchableOpacity
-              className='bg-purple-800 p-4 rounded-md w-72'
+              className='bg-purple-800 p-4 rounded-md w-[75%]'
               onPress={addTocart}
             >
               <Text className='text-center text-white'>Add to Cart</Text>

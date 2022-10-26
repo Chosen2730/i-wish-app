@@ -3,30 +3,14 @@ import React, { useState } from "react";
 import { AntDesign } from "@expo/vector-icons";
 import { useGlobalContext } from "../AuthContext";
 
-const SingleCartItem = ({ img, title, price }) => {
+const SingleCartItem = ({ img, title, price, count, id }) => {
   const { cartItems, setCartItems } = useGlobalContext();
-  const [count, setCount] = useState(1);
+  // const [count, setCount] = useState(1);
   const total = +price * count;
 
-  const increase = () => {
-    setCount(count + 1);
-  };
-  const decrease = () => {
-    setCount((n) => {
-      const newCount = n - 1;
-      if (newCount < 0) {
-        return 0;
-      }
-      return newCount;
-    });
-  };
-
-  const deleteItem = (title) => {
-    const filteredCartItems = cartItems.filter(
-      (item, i) => item.title !== title
-    );
+  const deleteItem = (id) => {
+    const filteredCartItems = cartItems.filter((item, i) => i !== id);
     setCartItems(filteredCartItems);
-    console.log(cartItems);
   };
   return (
     <View className='flex-row justify-between items-center  mb-4'>
@@ -37,28 +21,18 @@ const SingleCartItem = ({ img, title, price }) => {
         />
         <View>
           <Text className='font-semibold text-base capitalize'>{title}</Text>
-          <View className='flex-row p-1 px-2 rounded-md border-2 border-purple-800 w-32 items-center justify-between my-2'>
-            <Text
-              className='text-xl text-center w-8'
-              onPress={() => decrease(count)}
-            >
-              -
-            </Text>
+          <View className='flex-row p-1 px-2 rounded-md border-2 border-purple-800 w-32 items-center justify-between my-2 opacity-25'>
+            <Text className='text-xl text-center w-8'>-</Text>
             <Text className='text-lg text-purple-800 font-semibold'>
               {count}
             </Text>
-            <Text
-              className='text-xl text-center w-8'
-              onPress={() => increase()}
-            >
-              +
-            </Text>
+            <Text className='text-xl text-center w-8'>+</Text>
           </View>
           <Text>Total : N {total}</Text>
         </View>
       </View>
       <TouchableOpacity
-        onPress={() => deleteItem(title)}
+        onPress={() => deleteItem(id)}
         className='p-2 bg-red-500 rounded-md'
       >
         <AntDesign name='delete' size={20} color='white' />

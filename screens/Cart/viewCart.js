@@ -8,19 +8,29 @@ import SingleCartItem from "../../components/singleCartItem";
 
 const ViewCart = ({ navigation }) => {
   const { cartItems } = useGlobalContext();
-  const [groupedCartItems, setGroupeCartItems] = useState([]);
-
-  const array = cartItems.reduce((arr, crr) => {
-    let obj = arr.find((item) => item.title === crr.title);
-    if (obj) {
-      return arr;
-    }
-    return arr.concat([crr]);
-  }, []);
-
+  const [total, setTotal] = useState(0);
   useEffect(() => {
-    setGroupeCartItems(array);
+    let total = cartItems.reduce((total, crr) => {
+      const { price, count } = crr;
+      const itemPrice = price * count;
+      total += itemPrice;
+      return total;
+    }, 0);
+    setTotal(total);
   }, [cartItems]);
+  // const [groupedCartItems, setGroupeCartItems] = useState([]);
+
+  // const array = cartItems.reduce((arr, crr) => {
+  //   let obj = arr.find((item) => item.title === crr.title);
+  //   if (obj) {
+  //     return arr;
+  //   }
+  //   return arr.concat([crr]);
+  // }, []);
+
+  // useEffect(() => {
+  //   setGroupeCartItems(array);
+  // }, [cartItems]);
 
   return (
     <SafeAreaView className='flex-1'>
@@ -37,8 +47,8 @@ const ViewCart = ({ navigation }) => {
         </View>
         <ScrollView className='flex-1'>
           <View className='p-4'>
-            {groupedCartItems.map((item, i) => {
-              return <SingleCartItem key={i} {...item} />;
+            {cartItems.map((item, i) => {
+              return <SingleCartItem key={i} id={i} {...item} />;
             })}
           </View>
         </ScrollView>
@@ -55,7 +65,7 @@ const ViewCart = ({ navigation }) => {
           <Text className='text-lg font-bold mt-10'>Product Details</Text>
           <View className='flex-row justify-between my-1'>
             <Text className='text-base font-medium'>Subtotal</Text>
-            <Text className='text-base'>0</Text>
+            <Text className='text-base'>N {total}</Text>
           </View>
           <View className='flex-row justify-between my-1'>
             <Text className='text-base font-medium'>Discount</Text>
@@ -63,11 +73,11 @@ const ViewCart = ({ navigation }) => {
           </View>
           <View className='flex-row justify-between my-1'>
             <Text className='text-base font-medium'>Shipping</Text>
-            <Text className='text-base'>0</Text>
+            <Text className='text-base'>N 5000</Text>
           </View>
           <View className='flex-row justify-between my-1'>
             <Text className='text-base font-medium'>Total Order</Text>
-            <Text className='text-base'>0</Text>
+            <Text className='text-base'>N {total + 5000}</Text>
           </View>
           <TouchableOpacity className='bg-purple-800 p-4 rounded-md my-8'>
             <Text className='text-center text-white'>Continue</Text>
