@@ -4,8 +4,10 @@ import React, { useState } from "react";
 import { AntDesign } from "@expo/vector-icons";
 import { ScrollView, TouchableOpacity } from "react-native-gesture-handler";
 import OnBoardingSlide from "./onBoardingSlide";
+import { useGlobalContext } from "../../AuthContext";
 
 const Onboarding = ({ navigation }) => {
+  const { login } = useGlobalContext();
   const [pressedIndex, setPressedIndex] = useState(0);
   const screenHandler = () => {
     if (pressedIndex === 2) {
@@ -94,7 +96,10 @@ const Onboarding = ({ navigation }) => {
 
         {pressedIndex === 2 && (
           <View>
-            <Text className='text-center my-2 text-purple-800 text-base font-bold'>
+            <Text
+              className='text-center my-2 text-purple-800 text-base font-bold'
+              onPress={() => login()}
+            >
               Explore First
             </Text>
             <Text className='text-center text-gray-400 text-sm'>

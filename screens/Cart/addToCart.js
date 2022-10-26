@@ -1,11 +1,12 @@
 import { View, Text, TouchableOpacity, Image, ScrollView } from "react-native";
 import React, { useState } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
-import SharedHeader from "../../components/sharedHeader";
 import { AntDesign } from "@expo/vector-icons";
+import { useGlobalContext } from "../../AuthContext";
 
 const AddToCart = ({ navigation, route }) => {
-  const { item } = route?.params;
+  const { setCartItems, cartItems } = useGlobalContext();
+  const { price, title, shades } = route?.params?.item;
   const [imageShownIndex, setImageShownIndex] = useState(0);
   const [availableIndex, setAvailableIndex] = useState(0);
   const nums = [43, 39, 42, 45];
@@ -22,6 +23,12 @@ const AddToCart = ({ navigation, route }) => {
       return newCount;
     });
   };
+  const addTocart = () => {
+    navigation.navigate("ViewCart");
+    const newCartItem = { price, title, count, img: shades[0] };
+    setCartItems([...cartItems, newCartItem]);
+  };
+
   return (
     <SafeAreaView>
       <ScrollView>
@@ -37,10 +44,10 @@ const AddToCart = ({ navigation, route }) => {
         <View className='p-4'>
           <Image
             className='w-full h-44 object-cover rounded-md'
-            source={{ uri: item?.shades[imageShownIndex] }}
+            source={{ uri: shades[imageShownIndex] }}
           />
           <View className='flex-row justify-center items-center gap-4 my-2'>
-            {item?.shades?.map((obj, i) => (
+            {shades?.map((obj, i) => (
               <TouchableOpacity key={i} onPress={() => setImageShownIndex(i)}>
                 <Image
                   key={i}
@@ -50,8 +57,8 @@ const AddToCart = ({ navigation, route }) => {
               </TouchableOpacity>
             ))}
           </View>
-          <Text className='text-xl font-semibold'>{item?.title}</Text>
-          <Text className='text-xl font-bold my-2'>N {item?.price}</Text>
+          <Text className='text-xl font-semibold'>{title}</Text>
+          <Text className='text-xl font-bold my-2'>N {price}</Text>
           <Text className='text-lg font-semibold mt-4'>
             Product Description
           </Text>
@@ -96,7 +103,7 @@ const AddToCart = ({ navigation, route }) => {
             </View>
             <TouchableOpacity
               className='bg-purple-800 p-4 rounded-md w-72'
-              onPress={() => navigation.navigate("ViewCart")}
+              onPress={addTocart}
             >
               <Text className='text-center text-white'>Add to Cart</Text>
             </TouchableOpacity>

@@ -5,7 +5,7 @@ const AuthContext = createContext();
 const AuthProvider = ({ children }) => {
   const [isLoading, setIsLoading] = useState(!true);
   const [userToken, setUserToken] = useState(null);
-
+  const [cartItems, setCartItems] = useState([]);
   const getData = async () => {
     try {
       const storedToken = await AsyncStorage.getItem("tokenValue");
@@ -33,7 +33,9 @@ const AuthProvider = ({ children }) => {
     AsyncStorage.removeItem("tokenValue");
   };
   return (
-    <AuthContext.Provider value={{ login, logout, isLoading, userToken }}>
+    <AuthContext.Provider
+      value={{ login, logout, isLoading, userToken, cartItems, setCartItems }}
+    >
       {children}
     </AuthContext.Provider>
   );

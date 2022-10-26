@@ -1,7 +1,7 @@
 export const store = [
   {
     title: "adidas max air",
-    price: "150,000",
+    price: "150000",
     img: "https://i-wish.vercel.app/images/five.png",
     weight: "0.5",
     qty: "2",
@@ -21,7 +21,7 @@ export const store = [
   },
   {
     title: "Modern Wrist watch",
-    price: "120,000",
+    price: "120000",
     img: "https://i-wish.vercel.app/images/four.png",
     weight: "0.8",
     qty: "2",
@@ -41,7 +41,7 @@ export const store = [
   },
   {
     title: "iphone 12",
-    price: "350,000",
+    price: "350000",
     img: "https://i-wish.vercel.app/images/three.png",
     weight: "0.5",
     qty: "2",
@@ -61,7 +61,7 @@ export const store = [
   },
   {
     title: "Nike Airforce",
-    price: "24,000",
+    price: "24000",
     img: "https://i-wish.vercel.app/images/two.png",
     weight: "0.5",
     qty: "2",
@@ -81,7 +81,7 @@ export const store = [
   },
   {
     title: "T-Shirt",
-    price: "5,000",
+    price: "5000",
     img: "https://i-wish.vercel.app/images/one.png",
     weight: "0.5",
     qty: "2",
@@ -101,7 +101,7 @@ export const store = [
   },
   {
     title: "MacBook Air 2020",
-    price: "900,000",
+    price: "900000",
     img: "https://i-wish.vercel.app/images/six.png",
     weight: "0.5",
     qty: "2",
