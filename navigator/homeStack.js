@@ -1,14 +1,22 @@
 import React from "react";
-import { createDrawerNavigator } from "@react-navigation/drawer";
+
 import HomeScreen from "../screens/HomeScreen/homeScreen";
-import CustomDrawer from "../components/customDrawer";
+import { createStackNavigator } from "@react-navigation/stack";
+import PopuplarScreen from "../screens/HomeProfile/popularScreen";
+import WishListScreen from "../screens/HomeProfile/wishlishScreen";
+import MyWishList from "../screens/HomeProfile/myWishlistScreen";
+import SingleSCategory from "../screens/HomeProfile/singleSCategory";
 
 const HomeStack = () => {
-  const Drawer = createDrawerNavigator();
+  const Stack = createStackNavigator();
   return (
-    <Drawer.Navigator drawerContent={(props) => <CustomDrawer {...props} />}>
-      <Drawer.Screen name='HomeScreen' component={HomeScreen} />
-    </Drawer.Navigator>
+    <Stack.Navigator screenOptions={{ headerShown: false }}>
+      <Stack.Screen name='Base' component={HomeScreen} />
+      <Stack.Screen name='Popular Categories' component={PopuplarScreen} />
+      <Stack.Screen name='Single Category' component={SingleSCategory} />
+      <Stack.Screen name='Wishlist Items' component={WishListScreen} />
+      <Stack.Screen name='My Wishlist' component={MyWishList} />
+    </Stack.Navigator>
   );
 };
 

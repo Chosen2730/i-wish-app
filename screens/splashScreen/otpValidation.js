@@ -2,8 +2,10 @@ import { View, Text, Image, TouchableOpacity, TextInput } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import React, { useState } from "react";
 import { AntDesign } from "@expo/vector-icons";
+import { useGlobalContext } from "../../AuthContext";
 
 const OTPValidation = ({ navigation }) => {
+  const { login } = useGlobalContext();
   const OTPArray = new Array(5).fill("");
   const [otp, setOtp] = useState(OTPArray);
   const handleChange = (element, index) => {
@@ -49,7 +51,7 @@ const OTPValidation = ({ navigation }) => {
         </View>
         <TouchableOpacity
           className='bg-purple-800 w-full rounded-md p-4 my-5'
-          onPress={() => navigation.push("HomeScreen")}
+          onPress={() => login()}
         >
           <Text className='text-white text-center text-sm'>Verify Code</Text>
         </TouchableOpacity>

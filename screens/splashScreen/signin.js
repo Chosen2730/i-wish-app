@@ -3,8 +3,10 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import React, { useState } from "react";
 import { AntDesign } from "@expo/vector-icons";
 import { Ionicons } from "@expo/vector-icons";
+import { useGlobalContext } from "../../AuthContext";
 
 const Signin = ({ navigation }) => {
+  const { login } = useGlobalContext();
   const [isPassWordVisible, setIsPasswordVisible] = useState(true);
   return (
     <SafeAreaView className='flex-1 p-4'>
@@ -66,7 +68,7 @@ const Signin = ({ navigation }) => {
         </Text>
         <TouchableOpacity
           className='bg-purple-800 w-full rounded-md p-4 my-8'
-          onPress={() => navigation.push("HomeScreen")}
+          onPress={() => login()}
         >
           <Text className='text-white text-center text-sm'>Sign In</Text>
         </TouchableOpacity>

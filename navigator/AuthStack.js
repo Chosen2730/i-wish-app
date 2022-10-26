@@ -7,7 +7,7 @@ import HomeScreen from "../screens/HomeScreen/homeScreen";
 import Onboarding from "../screens/splashScreen/onboarding";
 import { createStackNavigator } from "@react-navigation/stack";
 
-const OnboardingStack = () => {
+const AuthStack = () => {
   const Stack = createStackNavigator();
   return (
     <Stack.Navigator screenOptions={{ headerShown: false }}>
@@ -16,9 +16,8 @@ const OnboardingStack = () => {
       <Stack.Screen name='CreateAccountForm' component={CreateAccountForm} />
       <Stack.Screen name='Signin' component={Signin} />
       <Stack.Screen name='OTPValidation' component={OTPValidation} />
-      <Stack.Screen name='HomeScreen' component={HomeScreen} />
     </Stack.Navigator>
   );
 };
 
-export default OnboardingStack;
+export default AuthStack;
