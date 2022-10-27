@@ -7,34 +7,10 @@ import { AntDesign } from "@expo/vector-icons";
 import SingleCartItem from "../../components/singleCartItem";
 
 const ViewCart = ({ navigation }) => {
-  const { cartItems } = useGlobalContext();
-  const [total, setTotal] = useState(0);
-  useEffect(() => {
-    let total = cartItems.reduce((total, crr) => {
-      const { price, count } = crr;
-      const itemPrice = price * count;
-      total += itemPrice;
-      return total;
-    }, 0);
-    setTotal(total);
-  }, [cartItems]);
-  // const [groupedCartItems, setGroupeCartItems] = useState([]);
-
-  // const array = cartItems.reduce((arr, crr) => {
-  //   let obj = arr.find((item) => item.title === crr.title);
-  //   if (obj) {
-  //     return arr;
-  //   }
-  //   return arr.concat([crr]);
-  // }, []);
-
-  // useEffect(() => {
-  //   setGroupeCartItems(array);
-  // }, [cartItems]);
-
+  const { cartItems, total } = useGlobalContext();
   return (
     <SafeAreaView className='flex-1'>
-      <ScrollView className=''>
+      <ScrollView showsVerticalScrollIndicator={false}>
         <View className='p-4'>
           <TouchableOpacity
             className='flex-row items-center'
@@ -79,7 +55,10 @@ const ViewCart = ({ navigation }) => {
             <Text className='text-base font-medium'>Total Order</Text>
             <Text className='text-base'>N {total + 5000}</Text>
           </View>
-          <TouchableOpacity className='bg-purple-800 p-4 rounded-md my-8'>
+          <TouchableOpacity
+            className='bg-purple-800 p-4 rounded-md my-8'
+            onPress={() => navigation.navigate("Checkout")}
+          >
             <Text className='text-center text-white'>Continue</Text>
           </TouchableOpacity>
           <Text

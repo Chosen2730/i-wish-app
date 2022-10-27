@@ -12,7 +12,7 @@ const Store = ({ navigation }) => {
       <View className='p-4'>
         <TouchableOpacity
           className='flex-row items-center'
-          onPress={() => navigation.goBack()}
+          onPress={() => navigation.navigate("Home")}
         >
           <AntDesign name='left' size={20} color='black' />
           <Text className='text-base ml-2'>Home</Text>

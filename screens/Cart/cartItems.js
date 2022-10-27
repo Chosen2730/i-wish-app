@@ -1,5 +1,5 @@
 import { View, Text, TouchableOpacity, Image } from "react-native";
-import React from "react";
+import React, { useEffect } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import SharedHeader from "../../components/sharedHeader";
 import { AntDesign } from "@expo/vector-icons";

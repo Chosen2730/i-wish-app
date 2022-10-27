@@ -6,6 +6,18 @@ const AuthProvider = ({ children }) => {
   const [isLoading, setIsLoading] = useState(!true);
   const [userToken, setUserToken] = useState(null);
   const [cartItems, setCartItems] = useState([]);
+  const [total, setTotal] = useState(0);
+
+  useEffect(() => {
+    let total = cartItems.reduce((total, crr) => {
+      const { price, count } = crr;
+      const itemPrice = price * count;
+      total += itemPrice;
+      return total;
+    }, 0);
+    setTotal(total);
+  }, [cartItems]);
+
   const getData = async () => {
     try {
       const storedToken = await AsyncStorage.getItem("tokenValue");
@@ -34,7 +46,15 @@ const AuthProvider = ({ children }) => {
   };
   return (
     <AuthContext.Provider
-      value={{ login, logout, isLoading, userToken, cartItems, setCartItems }}
+      value={{
+        login,
+        logout,
+        isLoading,
+        userToken,
+        cartItems,
+        setCartItems,
+        total,
+      }}
     >
       {children}
     </AuthContext.Provider>

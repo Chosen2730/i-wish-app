@@ -72,16 +72,16 @@ const CreateAccountForm = ({ navigation }) => {
           <View className='w-full h-1 bg-gray-200'></View>
         </View>
         <View className='flex-row gap-x-8 items-center justify-center my-5'>
-          <TouchableOpacity className='flex-row border-2 border-gray-600 p-2 px-4 items-center gap-2 justify-center rounded-lg'>
+          <TouchableOpacity className='flex-row border-2 border-gray-600 p-3 px-6 items-center justify-center rounded-lg'>
             <Image
-              className='w-6 h-6 flex'
+              className='w-6 h-6 flex mr-2'
               source={require("./../../assets/images/google.png")}
             />
             <Text className='text-sm'>Google</Text>
           </TouchableOpacity>
-          <TouchableOpacity className='flex-row border-2 border-gray-600 p-2 px-4 items-center gap-2 justify-center rounded-lg'>
+          <TouchableOpacity className='flex-row border-2 border-gray-600 p-3 px-6 items-center justify-center rounded-lg'>
             <Image
-              className='w-6 h-6 flex'
+              className='w-6 h-6 flex mr-2'
               source={require("./../../assets/images/facebook.png")}
             />
             <Text className='text-sm'>Facebook</Text>

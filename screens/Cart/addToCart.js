@@ -25,7 +25,7 @@ const AddToCart = ({ navigation, route }) => {
   };
   const addTocart = () => {
     navigation.navigate("ViewCart");
-    const newCartItem = { price, title, count, img: shades[0] };
+    const newCartItem = { price, title, count, img: shades[imageShownIndex] };
     setCartItems([...cartItems, newCartItem]);
   };
 
