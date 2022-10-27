@@ -85,10 +85,10 @@ const Onboarding = ({ navigation }) => {
           })}
         </View>
         <TouchableOpacity
-          className='bg-purple-800 w-fit rounded-md p-4 flex flex-row items-center justify-center my-5'
+          className='bg-purple-800 w-fit rounded-md p-5 flex flex-row items-center justify-center my-5'
           onPress={() => screenHandler(pressedIndex)}
         >
-          <Text className='text-white text-center text-lg mr-5'>
+          <Text className='text-white text-center text-sm mr-5'>
             Next Feature
           </Text>
           <AntDesign name='arrowright' size={24} color='white' />

@@ -101,11 +101,11 @@ const AddToCart = ({ navigation, route }) => {
             </Text>
           </View>
           <View className='flex-row items-center justify-between mt-10'>
-            <View className='border-2 border-purple-800 rounded-md p-3'>
+            <View className='border-2 border-purple-800 rounded-md p-4'>
               <AntDesign name='hearto' size={24} color='#7805A7' />
             </View>
             <TouchableOpacity
-              className='bg-purple-800 p-4 rounded-md w-[75%]'
+              className='bg-purple-800 p-5 rounded-md w-[75%]'
               onPress={addTocart}
             >
               <Text className='text-center text-white'>Add to Cart</Text>

@@ -77,7 +77,7 @@ const CheckoutDel = ({ navigation }) => {
         </View>
       </ScrollView>
       <TouchableOpacity
-        className='bg-purple-800 p-4 rounded-md my-8'
+        className='bg-purple-800 p-5 rounded-md my-8'
         onPress={() => navigation.navigate("CheckoutPay")}
       >
         <Text className='text-center text-white'>Proceed</Text>

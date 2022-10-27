@@ -27,7 +27,7 @@ const CartItems = ({ navigation }) => {
           Browse our categories and discover awesome products just for you
         </Text>
         <TouchableOpacity
-          className='bg-purple-800 p-4 rounded-md mt-10'
+          className='bg-purple-800 p-5 rounded-md mt-10'
           onPress={() => navigation.navigate("Store")}
         >
           <Text className='text-center text-white'>Start Shopping</Text>

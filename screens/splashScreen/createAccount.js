@@ -31,7 +31,7 @@ const CreateAccount = ({ navigation }) => {
             wishlist or select from our online store
           </Text>
           <TouchableOpacity
-            className='bg-purple-800 w-full rounded-md p-4 my-5'
+            className='bg-purple-800 w-full rounded-md p-5 my-5'
             onPress={() => navigation.navigate("CreateAccountForm")}
           >
             <Text className='text-white text-center text-sm'>
@@ -50,7 +50,7 @@ const CreateAccount = ({ navigation }) => {
             with ease
           </Text>
           <TouchableOpacity
-            className='bg-purple-800 w-full rounded-md p-4 my-5'
+            className='bg-purple-800 w-full rounded-md p-5 my-5'
             onPress={() => navigation.navigate("CreateAccountForm")}
           >
             <Text className='text-white text-center text-sm'>

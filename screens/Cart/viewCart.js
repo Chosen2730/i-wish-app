@@ -56,7 +56,7 @@ const ViewCart = ({ navigation }) => {
             <Text className='text-base'>N {total + 5000}</Text>
           </View>
           <TouchableOpacity
-            className='bg-purple-800 p-4 rounded-md my-8'
+            className='bg-purple-800 p-5 rounded-md my-8'
             onPress={() => navigation.navigate("Checkout")}
           >
             <Text className='text-center text-white'>Continue</Text>

@@ -50,7 +50,7 @@ const OTPValidation = ({ navigation }) => {
           })}
         </View>
         <TouchableOpacity
-          className='bg-purple-800 w-full rounded-md p-4 my-5'
+          className='bg-purple-800 w-full rounded-md p-5 my-5'
           onPress={() => login()}
         >
           <Text className='text-white text-center text-sm'>Verify Code</Text>
