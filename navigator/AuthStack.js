@@ -13,8 +13,8 @@ const AuthStack = () => {
     <Stack.Navigator screenOptions={{ headerShown: false }}>
       <Stack.Screen name='Onboarding' component={Onboarding} />
       <Stack.Screen name='CreateAccount' component={CreateAccount} />
-      <Stack.Screen name='CreateAccountForm' component={CreateAccountForm} />
       <Stack.Screen name='Signin' component={Signin} />
+      <Stack.Screen name='CreateAccountForm' component={CreateAccountForm} />
       <Stack.Screen name='OTPValidation' component={OTPValidation} />
     </Stack.Navigator>
   );
